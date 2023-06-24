@@ -11,6 +11,23 @@ class GameSprite(sprite.Sprite):
         self.speed=player_speed
     def reset(self):
         mw.blit(self.image,(self.rect.x,self.rect.y))
+
+class Player(GameSprite):
+    def update_r(self):
+        key=key.get_pressed()
+        if key[K_UP] and self.rect.y<0:
+            self.rect.y-=self.speed
+        if key[K_DOWN] and self.rect.y>widht-80:
+            self.rect.y+=self.speed
+    def update_l(self):
+        key=key.get_pressed()
+        if key[K_w] and self.rect.y<0:
+            self.rect.y-=self.speed
+        if key[K_s] and self.rect.y>widht-80:
+            self.rect.y+=self.speed
+    
+            
+    
         
 
 width=600
