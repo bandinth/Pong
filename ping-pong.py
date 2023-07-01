@@ -44,11 +44,22 @@ game=True
 finish=False
 FPS=60
 
+speed_x=3
+speed_y=3
+
 while game:
     for e in event.get():
         if e.type==QUIT:
             game=False
 
+    if finish!=True:
+        ball.rect.x+=speed_x
+        ball.rect.y+=speed_y
+        
+    ball.update()
+
+    if ball.rect.y>width-50 or ball.rect.y<0:
+        speed_y*=-1
 
     display.update()
     clock.tick(FPS)
